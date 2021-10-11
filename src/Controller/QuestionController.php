@@ -13,7 +13,8 @@ class QuestionController extends AbstractController
      */
     public function homepage()
     {
-        return new Response("koki super kontroleri as sukuriau");
+        return $this->render('question/homepage.html.twig');
+//        return new Response("koki super kontroleri as sukuriau");
     }
 
     /**
@@ -27,6 +28,8 @@ class QuestionController extends AbstractController
             'Honestly, I like furry shoes better than MY cat',
             'Maybe... try saying the spell backwards?',
         ];
+
+        dump($slug, $this);
         return $this->render('question/show.html.twig',[
             'question'=> ucwords(str_replace('-', ' ',$slug)),
             'answers' => $answers]);
