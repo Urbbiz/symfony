@@ -14,14 +14,15 @@ class CommentController extends AbstractController
      */
     public function commentVote($id, $direction, LoggerInterface $logger)
     {
-//        todo use id to query database
-//         use real logic here to save this to te database
-        if ($direction ==='up') {
+        // todo - use id to query the database
+
+        // use real logic here to save this to the database
+        if ($direction === 'up') {
             $logger->info('Voting up!');
             $currentVoteCount = rand(7, 100);
-        }else {
-            $currentVoteCount = rand(0, 5);
+        } else {
             $logger->info('Voting down!');
+            $currentVoteCount = rand(0, 5);
         }
 
         return $this->json(['votes' => $currentVoteCount]);
